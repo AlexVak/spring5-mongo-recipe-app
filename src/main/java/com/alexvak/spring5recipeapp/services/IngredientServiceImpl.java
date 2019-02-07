@@ -12,7 +12,6 @@ import com.alexvak.spring5recipeapp.repositories.RecipeRepository;
 import com.alexvak.spring5recipeapp.repositories.UnitOfMeasureRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -56,7 +55,6 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    @Transactional
     public IngredientCommand saveIngredientCommand(IngredientCommand command) {
 
         Optional<Recipe> recipeOptional = recipeRepository.findById(command.getRecipeId());
@@ -83,7 +81,6 @@ public class IngredientServiceImpl implements IngredientService {
             } else {
                 //add new Ingredient
                 Ingredient ingredient = ingredientCommandToIngredient.convert(command);
-                ingredient.setRecipe(recipe);
                 recipe.addIngredient(ingredient);
             }
 
@@ -120,7 +117,6 @@ public class IngredientServiceImpl implements IngredientService {
                     .filter(ingredient -> ingredient.getId().equals(ingredientId)).findFirst();
             if (ingredientOptional.isPresent()) {
                 Ingredient ingredient = ingredientOptional.get();
-                ingredient.setRecipe(null);
                 recipe.getIngredients().remove(ingredient);
                 recipeRepository.save(recipe);
             }
