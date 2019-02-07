@@ -35,8 +35,8 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-3 form-group" th:class="${#fields.hasErrors('description')}
-                                ? 'col-md-3 form-group has-error' : 'col-md-3 form-group'">
+                                <div class="col-md-4 form-group" th:class="${#fields.hasErrors('description')}
+                                ? 'col-md-4 form-group has-error' : 'col-md-4 form-group'">
                                     <label th:text="#{recipe.description}">Recipe Description d:</label>
                                     <input type="text" class="form-control" th:field="*{description}"
                                            th:errorclass="has-error"/>
@@ -138,10 +138,10 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-md-11 ">
+                                <div class="col-md-10">
                                     <h1 class="panel-title">Ingredients</h1>
                                 </div>
-                                <div class="col-md-1">
+                                <div class="col-md-2">
                                     <a class="btn btn-default" href="#"
                                        th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
                                 </div>
@@ -180,7 +180,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{directions}"></textarea></div>
+                                    <textarea class="form-control" rows="10" th:field="*{directions}"></textarea></div>
                             </div>
                         </div>
                     </div>
@@ -191,7 +191,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
+                                    <textarea class="form-control" rows="10" th:field="*{notes.recipeNotes}"></textarea>
                                 </div>
                             </div>
                         </div>
